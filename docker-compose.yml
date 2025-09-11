@@ -1,0 +1,13 @@
+services:
+  ntp:
+    image: dockurr/chrony
+    container_name: ntp
+    cap_add:
+      - SYS_TIME
+    environment:
+      NTP_SERVERS: "pool.ntp.org,time.nist.gov"
+      TZ: "America/Los_Angeles"
+      ENABLE_SYSCLK: "true"
+    ports:
+      - 123:123/udp
+    restart: always
