@@ -1,0 +1,14 @@
+# Are upstreams reachable & is one selected?
+docker exec -it ntp chronyc -N -n sources -v
+
+# Overall sync quality of the server (this is the big one)
+docker exec -it ntp chronyc tracking
+
+# Per-source stats (jitter, skew)
+docker exec -it ntp chronyc sourcestats -v
+
+# Are clients hitting you?
+docker exec -it ntp chronyc clients
+
+# Container logs (verbosity tunable via LOG_LEVEL)
+docker logs ntp | tail -n 50
