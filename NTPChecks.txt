@@ -12,3 +12,9 @@ docker exec -it ntp chronyc clients
 
 # Container logs (verbosity tunable via LOG_LEVEL)
 docker logs ntp | tail -n 50
+
+# Host Date time
+date
+
+# Chrony Container date time
+docker exec -it ntp date
